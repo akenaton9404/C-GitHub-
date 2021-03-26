@@ -147,7 +147,6 @@ int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIE 
      (n2 == input && n3 == input) && n1 == ' ' ||
      (n3 == input && n1 == input) && n2 == ' ' )
   {
-      printf("Primo IF\n");
       return cont_scelta;
   }
   //riga 2
@@ -155,7 +154,6 @@ int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIE 
      (n5 == input && n6 == input) && n4 == ' ' ||
      (n6 == input && n4 == input) && n5 == ' ' )
   {
-      printf("Secondo IF\n");
       return cont_scelta + 3;
   }
   //riga 3
@@ -163,7 +161,6 @@ int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIE 
      (n8 == input && n9 == input) && n7 == ' ' ||
      (n9 == input && n7 == input) && n8 == ' ' )
   {
-      printf("Terzo IF\n");
       return cont_scelta + 6;
   }
   //colonna 1
@@ -215,8 +212,7 @@ int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIE 
 
 int scelta_PC(int i)                      //SCELTA MOSSE PC
 {
-  int a;
-
+  int a, temp;
 
   switch (i) {
     case 1:
@@ -225,10 +221,11 @@ int scelta_PC(int i)                      //SCELTA MOSSE PC
     case 3:
       return mosse_vincenti('X');
     default:
+      temp = cont_scelta;
       a = mosse_vincenti('O');
       if(a == 100)
       {
-        cont_scelta = 0;
+        cont_scelta = temp;
         return mosse_vincenti('X');
       }
       else
