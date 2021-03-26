@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <math.h>
 
 char n1 = ' ', n2 = ' ', n3 = ' ', n4 = ' ', n5 = ' ', n6 = ' ', n7 = ' ', n8 = ' ', n9 = ' ';
 int cont_scelta = 0;
@@ -140,7 +139,7 @@ void posizionamento(int i, int scelta)    //POSIZIO0NAMENTO DI 'X' O 'O' SULLA G
   }
 }
 
-int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIO
+int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIE E DEL PC
 {
   cont_scelta++;
   //riga 1
@@ -148,6 +147,7 @@ int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIO
      (n2 == input && n3 == input) && n1 == ' ' ||
      (n3 == input && n1 == input) && n2 == ' ' )
   {
+      printf("Primo IF\n");
       return cont_scelta;
   }
   //riga 2
@@ -155,6 +155,7 @@ int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIO
      (n5 == input && n6 == input) && n4 == ' ' ||
      (n6 == input && n4 == input) && n5 == ' ' )
   {
+      printf("Secondo IF\n");
       return cont_scelta + 3;
   }
   //riga 3
@@ -162,6 +163,7 @@ int mosse_vincenti(char input)            //CONTROLLO MOSSE VINCENTI AVVERSARIO
      (n8 == input && n9 == input) && n7 == ' ' ||
      (n9 == input && n7 == input) && n8 == ' ' )
   {
+      printf("Terzo IF\n");
       return cont_scelta + 6;
   }
   //colonna 1
@@ -225,7 +227,10 @@ int scelta_PC(int i)                      //SCELTA MOSSE PC
     default:
       a = mosse_vincenti('O');
       if(a == 100)
+      {
+        cont_scelta = 0;
         return mosse_vincenti('X');
+      }
       else
         return a;
 
@@ -350,7 +355,9 @@ mossa >3:
 int main()
 {
   int mod;
+  char sn;
 
+  system("cls");
   printf("===== MODALITÀ =====\n");
   printf("  1) Multiplayer\n");
   printf("  2) Singleplayer\n");
