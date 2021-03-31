@@ -222,7 +222,7 @@ int scelta_PC(int i)                      //SCELTA MOSSE PC
       return mosse_vincenti('X');
     default:
       temp = cont_scelta;
-      a = mosse_vincenti('O');
+      a = mosse_vincenti('O');                // 1) Controlla se può vincere. Se NON può vincere ritorna 100
       if(a == 100)
       {
         cont_scelta = temp;
@@ -281,22 +281,22 @@ void singleplayer()                       //MODALITÀ SINGLEPLAYER
   /*
   FATTO
   prima mossa: casuale (casella vuota)
-- prima mossa giocatore (X)
+  - prima mossa giocatore (X)
 
-FATTO
-seconda mossa:
-- controllo combinazioni vincenti avversario (bloccare posizioni avversarie)
-- posizione angolare
-- se la X è su un bordo: il cerchio le andrà di fianco
+  FATTO
+  seconda mossa:
+  - controllo combinazioni vincenti avversario (bloccare posizioni avversarie)
+  - posizione angolare
+  - se la X è su un bordo: il cerchio le andrà di fianco
 
 
-terza mossa:
-- controllo combinazioni vincenti (funzione che posiziona la O)
-- controllo vittoria PC
+  terza mossa:
+  - controllo combinazioni vincenti (funzione che posiziona la O)
+  - controllo vittoria PC
 
-mossa >3:
-- controlli terza mossa
-*/
+  mossa >3:
+  - controlli terza mossa
+  */
   int scelta, end = 0;
 
   for(int i = 0; i < 9; i++)
