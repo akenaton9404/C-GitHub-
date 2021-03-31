@@ -1,4 +1,5 @@
 #include<stdio.h>
+#define lunghezza_array 50
 
 //funzione per trovare numeri: perfetti, abbondanti e difettivi
 int numero_pad(int a)
@@ -22,13 +23,13 @@ int numero_pad(int a)
 
 int main()
 {
-    int i, cont = 0, n, somma = 0, perfetti[20], disp = 0;
+    int i, cont = 0, n, somma = 0, perfetti[lunghezza_array], disp = 0;
 
     printf("***** Calcolo dei divisori di un numero *****\n\n");
     printf("Inserire il numero di cui calcolare i divisori: ");
     scanf("%d", &n);
 
-    for(i = 0; i < 20; i++) //imposta tutto l'array a 0 per comodità
+    for(i = 0; i < lunghezza_array; i++) //imposta tutto l'array a 0 per comodità
     {
       perfetti[i] = 0;
     }
@@ -45,7 +46,7 @@ int main()
           if(i % 2 == 1)
           {
             if(disp == 0)
-              printf("\n\nPrimo numero abbondante dispari: %d", i);
+              printf("\nPrimo numero abbondante dispari: %d", i);
             disp = 1;
           }
           if(disp == 0)
