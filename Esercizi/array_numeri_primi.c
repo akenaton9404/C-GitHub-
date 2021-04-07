@@ -9,7 +9,11 @@ void stampa(int a[])
         if(i%10==0)
             printf("\n\n");
         
-        printf("%d\t", a[i]);
+        if(a[i]!=0)
+            printf("%d\t", a[i]); 
+        else
+            printf(" \t");
+        
     }
 }
 
