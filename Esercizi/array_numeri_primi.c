@@ -24,12 +24,6 @@ int n_primo(int a)
         somma += i;
     }
 
-    // 17; somma = 1
-    // 19; somma = 1
-    // 23; somma = 1
-
-    // a; somma = 1 (se il numero è primo)
-
     if(somma == 1)
         return 1;
     else
@@ -60,10 +54,10 @@ int main()
     stampa(vet, lunghezza_vettore);
 
     if(out==0)
-        printf("\n\nnon sono stati trovati numeri primi");
+        printf("\n\n===================================\nnon sono stati trovati numeri primi\n===================================");
     else
     {
-        printf("\n\nsono presenti numeri primi");
+        printf("\n\n==========================\nsono presenti numeri primi\n==========================");
         stampa(vet2, puntatore);
     }
     return 0;
