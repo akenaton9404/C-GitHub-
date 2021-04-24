@@ -45,8 +45,8 @@ int main()
 
         if(n_primo(vet_rand[i])) //in assembly gli if vengono eseguiti il la codizione è diversa da 0 
         {
-            vet_primi[puntatore]=vet_rand[i];
-            out=1;
+            vet_primi[puntatore] = vet_rand[i];
+            out = 1;
             puntatore++;
         }
         else
@@ -64,5 +64,6 @@ int main()
         printf("\n\n==========================\nsono presenti numeri primi\n==========================");
         stampa(vet_primi, puntatore);
     }
+    
     return 0;
 }
