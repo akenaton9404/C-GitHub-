@@ -6,22 +6,25 @@ void stampa(int a[], int b)
 {
     for(int i = 0; i < b; i++)
     {
-        if(i%10==0)
+        if(!(i%10))
             printf("\n\n");
 
-        if(a[i]!=0)
+        if(a[i] != 0)
             printf("%d\t", a[i]);
     }
 }
 
 int n_primo(int a)
 {
-    int somma=0;
+    int somma = 0;
 
     for (int i = a/2; i >= 1; i--)  // a/2 perchè un numero non ha divisori maggiori della sua metà
     {
-      if(a % i == 0)
+      if(!(a % i))
+      {
         somma += i;
+        i = 0;
+      }
     }
 
     if(somma == 1)
@@ -33,32 +36,33 @@ int n_primo(int a)
 
 int main()
 {
-    int vet[lunghezza_vettore], vet2[lunghezza_vettore];
+    int vet_rand[lunghezza_vettore], vet_primi[lunghezza_vettore];
     int i, out = 0, puntatore = 0;
 
     for(i = 0; i < lunghezza_vettore; i++)
     {
-        //vet[i] = (rand()%1000)+1; per accorciare il codice si può inserire direttamente nei parametri in input della funzione
-        if(n_primo(vet[i] = (rand()%1000)+1)==1)
+        vet_rand[i] = (rand()%1000)+1;
+
+        if(n_primo(vet_rand[i])) //in assembly gli if vengono eseguiti il la codizione è diversa da 0 
         {
-            vet2[puntatore]=vet[i];
+            vet_primi[puntatore]=vet_rand[i];
             out=1;
             puntatore++;
         }
         else
         {
-          vet2[i] = 0;
+          vet_primi[i] = 0;
         }
     }
 
-    stampa(vet, lunghezza_vettore);
+    stampa(vet_rand, lunghezza_vettore);
 
-    if(out==0)
+    if(!out)
         printf("\n\n===================================\nnon sono stati trovati numeri primi\n===================================");
     else
     {
         printf("\n\n==========================\nsono presenti numeri primi\n==========================");
-        stampa(vet2, puntatore);
+        stampa(vet_primi, puntatore);
     }
     return 0;
 }
