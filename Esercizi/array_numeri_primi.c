@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #define lunghezza_vettore 1000
 
 void stampa(int a[], int b)
@@ -37,6 +38,8 @@ int main()
 {
     int vet_rand[lunghezza_vettore], vet_primi[lunghezza_vettore];
     int i, out = 0, puntatore = 0;
+
+    srand(time(NULL));
 
     for(i = 0; i < lunghezza_vettore; i++)
     {
