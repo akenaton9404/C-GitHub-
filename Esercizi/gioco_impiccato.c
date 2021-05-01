@@ -63,6 +63,8 @@ int main()
                 a++;
             }   
         }
+
+        system("cls"); // in sistemi unix -> system("clear")
     }
 
     printf("\nHAI INDOVNATO LA PAROLA: %s", trattini);
