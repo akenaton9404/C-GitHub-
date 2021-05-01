@@ -35,18 +35,18 @@ int lunghezza(char a[])
 
 int main()
 {
-    char listaparole[nelementi][lunghezzavet] = {"suca", "erba", "cacca", "fiume", "casa"};
+    char listaparole[nelementi][lunghezzavet] = {"gabbiano", "torre", "freccia", "lupo", "violoncello"};
     char trattini[lunghezzavet], scelta;
 
-    srand(time(NULL));
-    int nparola = rand()%nelementi, i;
+    srand(time(NULL));                      
+    int nparola = rand()%nelementi, i; //prende una parola random nell'array
 
-    int lenght = lunghezza(listaparole[nparola]);
-    setup(trattini, lenght);
+    int lenght = lunghezza(listaparole[nparola]); //controlla la lunghezza della parola
+    setup(trattini, lenght); //imposta n trattini nell'array
 
     int a = 0;
 
-    while(a < lenght)
+    while(a < lenght) // a = numero lettere indovinate; lenght = lunghezza parola
     {     
         printf("\n");
         stampa(trattini, lenght);
@@ -55,9 +55,9 @@ int main()
         printf("\nProva ad indovinare una lettera: ");
         scanf("%c", &scelta);
 
-        for(i = 0; i <= lenght; i++)
+        for(i = 0; i <= lenght; i++) 
         {
-            if(scelta == listaparole[nparola][i])
+            if(scelta == listaparole[nparola][i]) //controlla se la lettera inserita è presente
             {
                 trattini[i] = listaparole[nparola][i];
                 a++;
