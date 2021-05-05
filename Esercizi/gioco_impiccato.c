@@ -45,10 +45,12 @@ int main()
     setup(trattini, lenght); //imposta n trattini nell'array
 
     int a = 0;
+    int tentativi = 1;
 
     while(a < lenght) // a = numero lettere indovinate; lenght = lunghezza parola
     {     
-        printf("\n");
+        printf("Tentativo numero \t%d\n\n", tentativi);
+        
         stampa(trattini, lenght);
 
         fflush(stdin);
@@ -57,17 +59,18 @@ int main()
 
         for(i = 0; i <= lenght; i++) 
         {
-            if(scelta == listaparole[nparola][i]) //controlla se la lettera inserita Ã¨ presente
+            if(scelta == listaparole[nparola][i]) //controlla se la lettera inserita è presente
             {
                 trattini[i] = listaparole[nparola][i];
                 a++;
             }   
         }
-
+        
+        tentativi++;
         system("cls"); // in sistemi unix -> system("clear")
     }
 
-    printf("\nHAI INDOVNATO LA PAROLA: %s", trattini);
+    printf("\nHAI INDOVNATO LA PAROLA: \"%s\" in %d tentativi", trattini, tentativi-1);
 
     return 0;
 }
