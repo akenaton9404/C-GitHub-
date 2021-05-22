@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #define griglia 20
 
 int controllo(int ordine[], int i, int temp)
